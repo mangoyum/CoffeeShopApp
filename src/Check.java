@@ -2,8 +2,8 @@
 public class Check extends Payment {
 	private int checkNum;
 
-	public Check(double subtotal, double tax, double grandTotal, int checkNum) {
-		super(subtotal, tax, grandTotal);
+	public Check(double subtotal) {
+		super(subtotal);
 		this.checkNum = checkNum;
 	}
 
@@ -13,6 +13,18 @@ public class Check extends Payment {
 
 	public void setCheckNum(int checkNum) {
 		this.checkNum = checkNum;
+	}
+
+	@Override
+	public void toPrint() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getInput() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

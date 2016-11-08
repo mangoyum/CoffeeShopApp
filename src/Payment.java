@@ -16,11 +16,15 @@ public abstract class Payment {
 	public double getSubtotal() {
 		return subtotal;
 	}
-
+	
 	public double getGrandTotal() {
 		return grandTotal;
 	}
-
+	
+	public String getName(){
+		return "Payment";
+	}
+	
 	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
 	}
@@ -35,5 +39,7 @@ public abstract class Payment {
 		return grandTotal;
 
 	}
-
+	
+	public abstract void toPrint();
+	public abstract void getInput();
 }

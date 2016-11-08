@@ -4,7 +4,7 @@ public class CreditCard extends Payment{
 	private int expirationDate;
 	private int cvv;
 
-	public CreditCard(double subtotal, double tax, double grandTotal, long creditCardNum, int expirationDate, int cvv) {
+	public CreditCard(double subtotal) {
 		super(subtotal);
 		this.creditCardNum = creditCardNum;
 		this.expirationDate = expirationDate;
@@ -33,6 +33,18 @@ public class CreditCard extends Payment{
 
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
+	}
+
+	@Override
+	public void toPrint() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getInput() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -11,25 +11,44 @@ public class Cash extends Payment{
 	public double getCashAmount() {
 		return cashAmount;
 	}
-	
-	public double getChange() {
-		return change;
-	}
 
 	public void setCashAmount(double cashAmount) {
 		this.cashAmount = cashAmount;
 	}
-
-	public double generateChange() {
-		
-		generateGrandTotal();
-		
-		change = cashAmount - getGrandTotal();
-		
-		return change;
+	
+	public double getChange() {
+		return cashAmount;
 	}
 
+	public void setChange(double change) {
+		this.change = change;
+	}
 	
+
+	public double getCGrandTotal(){
+		return getGrandTotal();
+	}
+	public void getInput() {
+		
+		cashAmount = Validate.getChangeAmount(generateGrandTotal());
+		
+		setCashAmount(cashAmount);
+		change = cashAmount - getGrandTotal();
+		setChange(change);
+		
+	}
+
+	public String getName(){
+		return "Cash Money";
+	}
+
+	@Override
+	public void toPrint() {
+		
+		System.out.println("Cash amount payed: " + cashAmount);
+		System.out.println("Change: " + change);
+		
+	}
 
 	
 	

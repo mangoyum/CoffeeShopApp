@@ -14,7 +14,12 @@ public class Product {
 		this.price = price;
 		
 		}
-//methods
+@Override
+	public String toString() {
+		return "Product [name=" + name + ", category=" + category + ", description=" + description + ", price=" + price
+				+ "]";
+	}
+	//methods
 	public String getName() {
 		return name;
 	}
