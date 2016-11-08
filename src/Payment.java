@@ -1,23 +1,19 @@
 
-public class Payment {
+public abstract class Payment {
 	private double subtotal;
-	private final double TAX;
+	private final double TAX = 1.06;
 	private double grandTotal;
 	
 	//constructor
-	public Payment(double subtotal, double tax, double grandTotal) {
+	public Payment(double subtotal) {
 		super();
 		this.subtotal = subtotal;
-		this.TAX = tax;
-		this.grandTotal = grandTotal;	
+		
+			
 	}
-
+//getters and setters
 	public double getSubtotal() {
 		return subtotal;
-	}
-
-	public double getTax() {
-		return TAX;
 	}
 
 	public double getGrandTotal() {
@@ -28,8 +24,8 @@ public class Payment {
 		this.subtotal = subtotal;
 	}
 
-	public void setGrandTotal(double grandTotal) {
-		this.grandTotal = grandTotal;
+	public void generateGrandTotal() {
+		grandTotal = subtotal * TAX;
 	}
 	
 	
