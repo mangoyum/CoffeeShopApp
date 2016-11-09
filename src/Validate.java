@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 	public class Validate {
@@ -105,6 +107,29 @@ import java.util.Scanner;
 				sc.nextLine();
 			}
 			return i;
-		}	
+		}
+		public static int checkCheckNum(){
+			Scanner sc = new Scanner(System.in);
+			int i=0;
+			boolean isValid = false;
+			while(isValid == false){
+				
+				System.out.print("Enter check number: ");
+				if(sc.hasNextInt()){
+					i=sc.nextInt();
+					if (i >= 0 )isValid = true;
+					else System.out.println("Enter valid check number");
+				}else{
+					System.out.println("Error! Invalid integer value. Try again.");
+				}
+				sc.nextLine();
+			}
+			return i;
+		}
+		
+	public static BigDecimal formattingBD(double num){
+		BigDecimal grand = new BigDecimal(num);
+		return grand.setScale(2, RoundingMode.HALF_UP);
+	}
 	}
 

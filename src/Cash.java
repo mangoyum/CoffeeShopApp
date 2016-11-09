@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 
 public class Cash extends Payment{
 
@@ -45,8 +46,17 @@ public class Cash extends Payment{
 	@Override
 	public void toPrint() {
 		
-		System.out.println("Cash amount payed: " + cashAmount);
-		System.out.println("Change: " + change);
+		BigDecimal cashMoney = Validate.formattingBD(cashAmount);
+		BigDecimal prChange = Validate.formattingBD(change);
+		BigDecimal taxesChange = Validate.formattingBD((getTax() - 1) *getSubtotal());
+		BigDecimal subChange = Validate.formattingBD(getSubtotal());
+		BigDecimal grandChange = Validate.formattingBD(generateGrandTotal());
+		
+		System.out.printf("%-25.25s\t%10.10s \n","Subtotal: ", "$"+subChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Taxes: ", "$"+taxesChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Grandtotal: ", "$" + grandChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Cash amount paid: ","$" + cashMoney.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Change: ", "$" + prChange.toString());
 		
 	}
 
