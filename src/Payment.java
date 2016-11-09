@@ -12,10 +12,6 @@ public abstract class Payment {
 
 	}
 
-	public double getTax(){
-		return TAX;
-	}
-	
 	// getters and setters
 	public double getSubtotal() {
 		return subtotal;

@@ -51,7 +51,7 @@ public class ReadFile {
 		ArrayList <Product> menu = Filereading ();
 		for (Product p : menu) {
 			if (p.getCategory().equals("beverage")){
-				String str1 = String.format("%-25.25s\t%-10.10s %s", p.getName(), p.getPrice(), p.getDescription());
+				String str1 = String.format("%-30.30s %-10.10s %s", p.getName(), p.getPrice(), p.getDescription());
 				beverage.add(str1);
 			}
 		}
@@ -63,7 +63,7 @@ public class ReadFile {
 		ArrayList <Product> menu = Filereading();
 		for (Product p : menu) {
 			if (p.getCategory().equals("food")){
-				String str1 = String.format("%-25.25s\t%-10.10s %s", p.getName(), p.getPrice(), p.getDescription());
+				String str1 = String.format("%-30.30s %-10.10s %s", p.getName(), p.getPrice(), p.getDescription());
 				food.add(str1);
 			}
 		}
