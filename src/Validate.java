@@ -16,7 +16,7 @@ public class Validate {
 		String response = "";
 		boolean cont = true;
 		while (cont) {
-			System.out.print("\nWould you like anything else? (y/n): ");
+			System.out.print("\nWould you like to order? (y/n): ");
 			response = sc.nextLine();
 			if (response.length() != 1) {
 				continue;
@@ -43,16 +43,16 @@ public class Validate {
 		int i = 0;
 		boolean isValid = false;
 		while (isValid == false) {
-
+			System.out.println();
 			System.out.print("Enter item number (Enter 0 to end your order): ");
 			if (sc.hasNextInt()) {
 				i = sc.nextInt();
-				if (i >= 0 && i <= 12)
+				if (i >= 0 && i <= 13)
 					isValid = true;
 				else
-					System.out.println("Enter a number between 1-12");
+					System.out.println("Enter a number between 1-13");
 			} else {
-				System.out.println("Error! Invalid integer value. Try again.");
+				System.out.println("Error! Invalid entry. Try again.");
 			}
 			sc.nextLine();
 		}
@@ -73,7 +73,7 @@ public class Validate {
 				else
 					System.out.println("Enter a number between 1-3");
 			} else {
-				System.out.println("Error! Invalid integer value. Try again.");
+				System.out.println("Error! Invalid entry. Try again.");
 			}
 			sc.nextLine();
 		}
@@ -94,7 +94,7 @@ public class Validate {
 				else
 					System.out.println("Enter a positive number");
 			} else {
-				System.out.println("Error! Invalid integer value. Try again.");
+				System.out.println("Error! Invalid entry. Try again.");
 			}
 			sc.nextLine();
 		}
@@ -115,7 +115,7 @@ public class Validate {
 				else
 					System.out.println("Give us the right amount");
 			} else {
-				System.out.println("Error! Invalid integer value. Try again.");
+				System.out.println("Error! Invalid entry. Try again.");
 			}
 			sc.nextLine();
 		}
@@ -136,7 +136,7 @@ public class Validate {
 				else
 					System.out.println("Enter valid check number");
 			} else {
-				System.out.println("Error! Invalid integer value. Try again.");
+				System.out.println("Error! Invalid entry. Try again.");
 			}
 			sc.nextLine();
 		}

@@ -1,12 +1,12 @@
-Rooibos tea, beverage, African herbal red tea, 2.95
-Chai tea, beverage, aromatic spicy black tea, 2.95
-Matcha tea, beverage, green tea, 3.95
-Iced tea, beverage, choice of tea on the rocks, 3.95
-Cafe Latte, beverage, 2 shots of espresso with milk, 4.95
-French Roast coffee, beverage, house blend favorite, 3.95
-Cappuccino, beverage, a delicious treat, 4.95
-Shot of Espresso, beverage, gets the job done, 2.95
-Almond scone, food, butter scone with almond glaze, 4.95
-Bagel and cream cheese, food, homemade bagel with fresh cream cheese, 1.95
-Blueberry muffin, food, homemade buttery delicious muffins, 2.95
-Yogurt parfait, food, granola and berries, 3.95
+Rooibos tea, beverage, African Red Bush tea, 2.95
+Chai tea, beverage, Aromatic Indian Spiced Black tea, 2.95
+Matcha tea, beverage, Japanese Green tea, 3.95
+Iced tea, beverage, Jasmine tea on the Rocks, 3.95
+Cafe Latte, beverage, 2 Shots of Espresso with Milk, 4.95
+French Roast coffee, beverage, House Blend Favorite, 3.95
+Cappuccino, beverage, Foamy Italian Coffee Treat, 4.95
+Shot of Espresso, beverage, Gets the Job Done!, 2.95
+Almond Scone, food, Butter scone with almond glaze, 4.95
+Bagel and cream cheese, food, Homemade Bagel with Fresh Cream Cheese, 1.95
+Blueberry Muffin, food, Homemade Delicious Blueberry Butter Muffins, 2.95
+Yogurt Parfait, food, Granola and Berries, 3.95

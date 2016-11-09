@@ -3,21 +3,28 @@ import java.util.ArrayList;
 public class CoffeeShopApp {
 
 	public static void main(String[] args) {
+		
 		System.out.println("Welcome to the FAM coffee shop! \n" + "When you are here, you are family! ");
-		System.out.println("Here's our full menu. What would you like to order?");
+		
 		double subtotal = 0;		
-
-		ArrayList<Integer> count = new ArrayList<Integer>();
+		boolean cont = true;
+		
+		
 		ArrayList<Product> menu = ReadFile.Filereading();
-
+do{
 		ArrayList<Product> itemsBought = new ArrayList<Product>();
-
+		ArrayList<Integer> count = new ArrayList<Integer>();
+		
+		System.out.println("Here's our full menu. What would you like to order?");
 		printMenu();
 		
 		while (true){
 			int orderNum = Validate.getOrder();
 			if (orderNum == 0){
 				break;
+			}else if(orderNum == 13){
+				printMenu();
+				orderNum = Validate.getOrder();
 			}
 			int numOf = Validate.getQuantity();
 			itemsBought.add(menu.get((orderNum - 1)));
@@ -29,30 +36,37 @@ public class CoffeeShopApp {
 			
 		}
 		Payment needTotal = new Cash(0);
-		System.out.println("You owe: $" + Validate.formattingBD(needTotal.getTax()*subtotal));
+		System.out.println("Amount owed: $" + Validate.formattingBD(needTotal.getTax()*subtotal));
 		Payment typePayment = getPaymentType(subtotal);
 		typePayment.getInput();
 		
 		printReceipt(itemsBought, count);
 		typePayment.toPrint();
-
+		char response = Validate.YesOrNo();
+		cont = Validate.loopingAgain(response);
+}
+while(cont);
 	}
 
 	public static void printMenu() {
 		ArrayList<String> beverage = ReadFile.getBeverageList();
 		int i = 1;
+		System.out.println();
 		System.out.println("Beverages: ");
 		for (String p : beverage) {
 			System.out.println(i + ". " + p);
 			i++;
 		}
 		ArrayList<String> food = ReadFile.getFoodList();
+		System.out.println();
 		System.out.println("Food: ");
 		for (String f : food) {
 			System.out.println(i + ". " + f);
 			i++;
-
 		}
+		System.out.println("13. Show menu again.");
+
+		
 		}
 	public static Payment getPaymentType(Double subTotal){
 		int a = Validate.getPaymentChoice();
