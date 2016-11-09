@@ -1,5 +1,6 @@
+import java.math.BigDecimal;
 
-public class CreditCard extends Payment{
+public class CreditCard extends Payment {
 	private long creditCardNum;
 	private int expirationDate;
 	private int cvv;
@@ -37,18 +38,25 @@ public class CreditCard extends Payment{
 
 	@Override
 	public void toPrint() {
-		// TODO Auto-generated method stub
+		BigDecimal taxesChange = Validate.formattingBD((getTax() - 1) *getSubtotal());
+		BigDecimal subChange = Validate.formattingBD(getSubtotal());
+		BigDecimal grandChange = Validate.formattingBD(generateGrandTotal());
 		
+		System.out.printf("%-25.25s\t%10.10s \n","Subtotal: ", "$"+subChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Taxes: ", "$"+taxesChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Grandtotal: ", "$" + grandChange.toString());
+		System.out.printf("%-25.25s\t%10.10s \n","Paid with Credit Card: ", 
+				"**** "+Long.toString(getCreditCardNum()).substring(12,16));
+		System.out.printf("%-25.25s\t%10.10s \n","CVV: ", Integer.toString(getCvv()));
+
 	}
 
 	@Override
 	public void getInput() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-		
+		creditCardNum = Validate.creditCardVal();
+		setCreditCardNum(creditCardNum);
+		cvv = Validate.ccvVal();
+		setCvv(cvv);
 	}
 
-
+}
