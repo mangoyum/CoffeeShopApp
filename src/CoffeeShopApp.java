@@ -29,7 +29,7 @@ public class CoffeeShopApp {
 			
 		}
 		Payment needTotal = new Cash(0);
-		System.out.println("You own: $" + Validate.formattingBD(needTotal.getTax()*subtotal));
+		System.out.println("You owe: $" + Validate.formattingBD(needTotal.getTax()*subtotal));
 		Payment typePayment = getPaymentType(subtotal);
 		typePayment.getInput();
 		

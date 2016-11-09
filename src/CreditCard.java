@@ -1,8 +1,9 @@
 import java.math.BigDecimal;
+import java.util.Calendar;
 
 public class CreditCard extends Payment {
 	private long creditCardNum;
-	private int expirationDate;
+	private String expirationDate;
 	private int cvv;
 
 	public CreditCard(double subtotal) {
@@ -16,7 +17,7 @@ public class CreditCard extends Payment {
 		return creditCardNum;
 	}
 
-	public int getExpirationDate() {
+	public String getExpirationDate() {
 		return expirationDate;
 	}
 
@@ -28,8 +29,8 @@ public class CreditCard extends Payment {
 		this.creditCardNum = creditCardNum;
 	}
 
-	public void setExpirationDate(int expirationDate) {
-		this.expirationDate = expirationDate;
+	public void setExpirationDate(String expirationDate2) {
+		this.expirationDate = expirationDate2;
 	}
 
 	public void setCvv(int cvv) {
@@ -57,6 +58,8 @@ public class CreditCard extends Payment {
 		setCreditCardNum(creditCardNum);
 		cvv = Validate.ccvVal();
 		setCvv(cvv);
+		expirationDate = Validate.expDateVal();
+		setExpirationDate(expirationDate);
 	}
 
 }

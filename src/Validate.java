@@ -1,6 +1,12 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Validate {
 
@@ -184,5 +190,53 @@ public class Validate {
 		sc.nextLine();
 		return cvv;
 	}
+	public static String expDateVal(){
+	// get current date time with Date()
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
-}
+		Calendar cal = Calendar.getInstance();
+
+		Scanner scan = new Scanner(System.in);
+		Calendar expDate = Calendar.getInstance();
+		boolean isValid = false;
+		String str1 = "";
+		while (isValid == false) {
+			System.out.println("Please enter credit card expiration date: (yyyy/mm/dd): ");
+
+			if (scan.hasNext(Pattern.compile("..../../.."))) {
+				str1 = scan.next();
+
+				Date desiredDate = new Date();
+				try {
+					desiredDate = dateFormat.parse(str1);
+				} catch (ParseException e) {
+
+					System.out.println(e);
+				}
+				// desired date is formatted user cc exp date
+				expDate = Calendar.getInstance();
+				expDate.setTime(desiredDate);// converting from date object to
+												// calendar
+												// object
+				long dateNow = cal.getTimeInMillis();
+				long dateCC = expDate.getTimeInMillis();
+
+				if (dateCC >= dateNow) {
+					isValid = true;
+					System.out.println("Credit card is valid");
+				} else {
+					System.out.println("You have entered an expired Credit Card.");
+
+				}
+			} else {
+				System.out.println();
+				System.out.println("Error! Invalid input. Try again!");
+				
+			}
+			scan.nextLine();
+		}
+		return str1;
+		//scan.close();
+	}
+	}
+
