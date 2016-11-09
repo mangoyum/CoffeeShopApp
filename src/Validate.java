@@ -40,7 +40,7 @@ import java.util.Scanner;
 			boolean isValid = false;
 			while(isValid == false){
 				
-				System.out.print("Enter your order number: ");
+				System.out.print("Enter item number (Enter 0 to end your order): ");
 				if(sc.hasNextInt()){
 					i=sc.nextInt();
 					if (i>=0 && i<= 12)isValid = true;
