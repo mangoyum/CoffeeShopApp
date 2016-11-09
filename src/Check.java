@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 
 public class Check extends Payment {
 	private int checkNum;
@@ -17,19 +18,21 @@ public class Check extends Payment {
 
 	@Override
 	public void toPrint() {
-		// TODO Auto-generated method stub
+		BigDecimal taxesChange = Validate.formattingBD((getTax() - 1) *getSubtotal());
+		BigDecimal subChange = Validate.formattingBD(getSubtotal());
+		BigDecimal grandChange = Validate.formattingBD(generateGrandTotal());
+		
+		System.out.println("Subtotal: $" + subChange);
+		System.out.println("Taxes: $" + taxesChange);
+		System.out.println("Grandtotal: $" + grandChange);
+		System.out.println("Paid with my check number:"+ getCheckNum());
 		
 	}
 
 	@Override
 	public void getInput() {
-		// TODO Auto-generated method stub
+		setCheckNum(Validate.checkCheckNum());
 		
 	}
-	
-	
-
-	
-	
 	
 }

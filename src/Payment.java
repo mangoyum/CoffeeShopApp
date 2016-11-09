@@ -11,6 +11,10 @@ public abstract class Payment {
 		this.subtotal = subtotal;
 
 	}
+	
+	public double getTax(){
+		return TAX;
+	}
 
 	// getters and setters
 	public double getSubtotal() {

@@ -4,21 +4,13 @@ public class CoffeeShopApp {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to the FAM coffee shop! \n" + "When you are here, you are family! ");
-
 		System.out.println("Here's our full menu. What would you like to order?");
-		// print out by category, each item and price, with description
-		// underneath
-		double subtotal = 0;
-		
-		// instantiate a subtotal
-		// instantiate read file(menu)
-		// Array list of quantity
+		double subtotal = 0;		
+
 		ArrayList<Integer> count = new ArrayList<Integer>();
 		ArrayList<Product> menu = ReadFile.Filereading();
-		// create an array list of items bought ( which will be empty here)
+
 		ArrayList<Product> itemsBought = new ArrayList<Product>();
-		// ask for quantity
-		// need a loop
 
 		printMenu();
 		
@@ -36,31 +28,13 @@ public class CoffeeShopApp {
 			subtotal += itemsBought.get(j).getPrice() * count.get(j);
 			
 		}
-		System.out.println(subtotal);
+		Payment needTotal = new Cash(0);
+		System.out.println("You own: $" + Validate.formattingBD(needTotal.getTax()*subtotal));
 		Payment typePayment = getPaymentType(subtotal);
 		typePayment.getInput();
-		typePayment.toPrint();
 		
-		//for(int j=0; j<count.size(); j++){
-			//System.out.println(itemsBought.get(j).getName() + " x " + count.get(j));
-		//}
-		// while (true)
-		// int order = prompt for order
-		// if (int order = 0){
-		// break the loop
-		// itemBought.add(menu.get((i - 1)));
-
-		// for loop through the subtotal += itemsBought.getPrice()
-		// Instantiate payment type
-		// Print itemsBought
-		// Pring using BigDecimal
-		// Print receipt
-		// return to menu for new order
-		// We want to have the array list inside the do while loop so it will be
-		// re-instantiated
-		// everytime
-
-		// Figure out how to print on same line if quantity of 2
+		printReceipt(itemsBought, count);
+		typePayment.toPrint();
 
 	}
 
@@ -93,4 +67,13 @@ public class CoffeeShopApp {
 			} 
 	}
 	
+	public static void printReceipt(ArrayList<Product> item, ArrayList<Integer> count){
+		System.out.println("\n\n\t\tFAM Coffee Shop\n\n");
+		for(int j=0; j<item.size(); j++){
+			System.out.printf("%-25.25s x %-7s $%5s\n",item.get(j).getName(),Integer.toString(count.get(j)),
+			(Validate.formattingBD(item.get(j).getPrice() * count.get(j))).toString());
+		}
+		System.out.println("\n\n");
+		
+	}
 }
