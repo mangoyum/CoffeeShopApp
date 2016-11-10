@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CoffeeShopApp {
 
@@ -51,8 +52,26 @@ do{
 		cont = Validate.loopingAgain(response);
 }
 while(cont);
-	System.out.println("\n\t\tDaily Sales: ");
-	printReceipt(dailyItemsBought, dailyCount);
+	Scanner sc = new Scanner(System.in);
+	String pw = "";
+	
+	char resp = Validate.YesOrNo2();
+	if (resp == 'y'){
+	for (int i=0; i<= 3; i++){
+		System.out.print("Enter password to see Daily Total: ");
+		pw = sc.nextLine();
+		if(pw.equals("FAM")){
+			System.out.println("\n\t\tDaily Sales: ");
+			printReceipt(dailyItemsBought, dailyCount);
+			break;
+		}else{
+			System.out.println("You entered the wrong password");
+		}
+	}}
+	else{
+		System.out.println("Goodnight, see you tomorrow. ");
+	}
+	
 	}
 
 	public static void printMenu() {

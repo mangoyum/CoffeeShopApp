@@ -10,6 +10,24 @@ import java.util.regex.Pattern;
 
 public class Validate {
 
+	public static char YesOrNo2() {
+		Scanner sc = new Scanner(System.in);
+
+		String response = "";
+		boolean cont = true;
+		while (cont) {
+			System.out.print("\nWould you like to see the daily report? (y/n): ");
+			response = sc.nextLine();
+			if (response.length() != 1) {
+				continue;
+			} else if (response.toLowerCase().charAt(0) != 'y' && response.toLowerCase().charAt(0) != 'n') {
+				continue;
+			} else {
+				break;
+			}
+		}
+		return response.toLowerCase().charAt(0);
+	}
 	public static char YesOrNo() {
 		Scanner sc = new Scanner(System.in);
 
