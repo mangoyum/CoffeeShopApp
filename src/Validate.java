@@ -37,7 +37,7 @@ public class Validate {
 			return false;
 		}
 	}
-
+	//Enter number 13 
 	public static int getOrder() {
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
@@ -166,6 +166,7 @@ public class Validate {
 			}
 			sc.nextLine();
 		}
+
 		return creditCard;
 	}
 
@@ -185,9 +186,9 @@ public class Validate {
 			} else {
 				System.out.println("Error! Invalid security code. Try again.");
 			}
-
+			sc.nextLine();
 		}
-		sc.nextLine();
+		sc.close();
 		return cvv;
 	}
 	public static String expDateVal(){

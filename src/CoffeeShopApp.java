@@ -5,13 +5,15 @@ public class CoffeeShopApp {
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to the FAM coffee shop! \n" + "When you are here, you are family! ");
-		
-		double subtotal = 0;		
+		double dailySubtotal = 0;
+		ArrayList<Product> dailyItemsBought = new ArrayList<Product>();
+		ArrayList<Integer> dailyCount = new ArrayList<Integer>();
 		boolean cont = true;
 		
 		
 		ArrayList<Product> menu = ReadFile.Filereading();
 do{
+		double subtotal = 0;
 		ArrayList<Product> itemsBought = new ArrayList<Product>();
 		ArrayList<Integer> count = new ArrayList<Integer>();
 		
@@ -28,11 +30,14 @@ do{
 			}
 			int numOf = Validate.getQuantity();
 			itemsBought.add(menu.get((orderNum - 1)));
+			dailyItemsBought.add(menu.get((orderNum - 1)));
 			count.add(numOf);
+			dailyCount.add(numOf);
 		}
 		
 		for (int j = 0; j<count.size(); j++){
 			subtotal += itemsBought.get(j).getPrice() * count.get(j);
+			dailySubtotal += dailyItemsBought.get(j).getPrice() * count.get(j);
 			
 		}
 		Payment needTotal = new Cash(0);
@@ -46,6 +51,8 @@ do{
 		cont = Validate.loopingAgain(response);
 }
 while(cont);
+	System.out.println("\n\t\tDaily Sales: ");
+	printReceipt(dailyItemsBought, dailyCount);
 	}
 
 	public static void printMenu() {
@@ -64,8 +71,7 @@ while(cont);
 			System.out.println(i + ". " + f);
 			i++;
 		}
-		System.out.println("13. Show menu again.");
-
+		System.out.println("13. Show menu again");
 		
 		}
 	public static Payment getPaymentType(Double subTotal){

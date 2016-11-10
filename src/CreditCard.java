@@ -48,8 +48,6 @@ public class CreditCard extends Payment {
 		System.out.printf("%-25.25s\t%10.10s \n","Grandtotal: ", "$" + grandChange.toString());
 		System.out.printf("%-25.25s\t%10.10s \n","Paid with Credit Card: ", 
 				"**** "+Long.toString(getCreditCardNum()).substring(12,16));
-		System.out.printf("%-25.25s\t%10.10s \n","CVV: ", Integer.toString(getCvv()));
-
 	}
 
 	@Override
